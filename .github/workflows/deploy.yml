@@ -139,9 +139,7 @@ jobs:
 
       - name: Setup SSH Key
         run: |
-          cat << 'EOF' > /tmp/ssh_key
-          ${{ secrets.SSH_PRIVATE_KEY }}
-          EOF
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > /tmp/ssh_key
           chmod 600 /tmp/ssh_key
 
       - name: Wait for SSH
